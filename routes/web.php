@@ -7,9 +7,13 @@ Route::get('/', function () {
 });
 Route::get('/pizzas', function () {
     $pizzas = [
-        "name" => "Hawaaiian",
-        "base" => "Crispy",
-        "price" => 20
+        ['type' => 'Hawaiian', 'base' => 'cheesy crust'],
+        ['type' => 'Volcano', 'base' => 'garlic crust'],
+        ['type' => 'veg supreme', 'base' => 'thin & crispy']
     ];
-    return view('pizzas', $pizzas);
+
+    $user_name = request('name');
+    $user_age = request('age');
+
+    return view('pizzas', ['pizzas' => $pizzas, 'transfer_name' => $user_name, 'transfer_age' => $user_age]);
 });

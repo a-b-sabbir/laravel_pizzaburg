@@ -1,10 +1,17 @@
-<h2>Pizza List</h2>
-<p>{{$name}} - {{$base}} - {{$price}}</p>
+@extends('layout.layout')
+@section('content')
+<center>
+    <h1>User Name : {{ $transfer_name }}</h1>
+    <h2>Age : {{ $transfer_age }}</h2>
+    <h2>Pizza List</h2>
+    @for ($i = 0; $i < count($pizzas); $i++)
+        <p>{{ $pizzas [$i] ['type'] }}</p>
+        @endfor
 
-@if ($price >10)
-<p>The pizza is expensive</p>
-@elseif ($price <5)
-    <p>The pizza is cheap</p>
-    @else
-    <p>The pizza is normally priced</p>
-    @endif
+        @foreach ($pizzas as $pizza)
+        <div>
+            {{ $loop -> index +1 }} - {{ $pizza['type'] }} - {{ $pizza['base'] }}
+        </div>
+        @endforeach
+</center>
+@endsection
