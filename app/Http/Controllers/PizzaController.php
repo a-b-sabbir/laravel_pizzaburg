@@ -7,19 +7,25 @@ use App\Models\Pizza;
 
 class PizzaController extends Controller
 {
-    public function show()
+    public function index()
     {
         // $pizzas = Pizza::all();
         $pizzas = Pizza::orderBy('id','desc')->get();
         // $pizzas = Pizza::where('type','Hawaiian')->get();
         // $pizzas = Pizza::latest()->get();
+        $id = request('id');
 
         // $name = request('name');
         // $age = request('age');
-        return view('pizzas', ['pizzas' => $pizzas]);
+        return view('pizzas.index', ['pizzas' => $pizzas]);
     }
-    public function showByID($id)
+    public function show($id)
     {
-        return view('details', ['id' => $id]);
+        $pizza = Pizza::find($id);
+        return view('pizzas.show', ['pizzas' => $pizza]);
+    }
+
+    public function create(){
+        return view('pizzas.create');
     }
 }

@@ -1,4 +1,4 @@
 @extends('layout.layout')
 @section('content')
-<h2>Welcome</h2>
+<h2>Welcome To Pizzburg</h2>
 @endsection

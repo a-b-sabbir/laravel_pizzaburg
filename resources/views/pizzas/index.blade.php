@@ -18,11 +18,11 @@
         @foreach ($pizzas as $pizza)
         <tr>
             <td>{{ $pizza['id'] }} </td>
-            
             <td>{{ $pizza['name'] }}</td>
             <td>{{ $pizza['type'] }}</td>
             <td>{{ $pizza['base'] }}</td>
-        </tr> @endforeach
+        </tr> 
+        @endforeach
     </tbody>
 </table>
 
