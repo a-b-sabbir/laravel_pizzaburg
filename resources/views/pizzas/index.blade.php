@@ -26,4 +26,6 @@
     </tbody>
 </table>
 
+<a href="/pizzaburg/pizzas/create">Order a Pizza</a>
+
 @endsection
