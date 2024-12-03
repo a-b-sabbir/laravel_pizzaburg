@@ -1,16 +1,28 @@
 @extends('layout.layout')
 @section('content')
-<center>
-    <span>
-        <h2>Name : {{ $name }}</h2>
-        <h3>Age : {{ $age }}</h3>
-        @for ($i = 0; $i < count($pizzas); $i++)
-            <p>{{ $pizzas[$i]['type'] }}</p>
-            @endfor
+<BR>
+<h5>Customer Name : {{ $name }}</h5>
+<h5>Customer Age : {{ $age }}</h5>
+<br>
+<Center>
+    <h4>Pizzas</h4>
+</Center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>SL</th>
+            <th>Type</th>
+            <th>Base</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($pizzas as $pizza)
+        <tr>
+            <td>{{ $loop->index + 1 }} </td>
+            <td>{{ $pizza['type'] }}</td>
+            <td>{{ $pizza['base'] }}</td>
+        </tr> @endforeach
+    </tbody>
+</table>
 
-            @foreach ($pizzas as $pizza)
-            <p>{{ $loop->index }} - {{ $pizza['type'] }} - {{ $pizza['base'] }}</p>
-            @endforeach
-    </span>
-</center>
 @endsection
