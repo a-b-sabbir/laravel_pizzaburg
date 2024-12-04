@@ -8,6 +8,11 @@
         <input class="form-control w-50" type="text" id="name" name="name" /><br>
     </div>
     <div class="mb-3">
+        <label class="form-label" for="price">Price: </label>
+        <input class="form-control w-50" type="text" id="price" name="price" /><br>
+    </div>
+    
+    <div class="mb-3">
         <label for="type">Choose a Pizza type: </label>
         <select class="form-select w-50" name="type" id="type">
             <option value="Margarita">Margarita</option>
@@ -25,6 +30,14 @@
             <option value="Thin & Crispy">Thin & Crispy</option>
             <option value="Thick">Thick</option>
         </select>
+        <br>
+        <fieldset>
+            <label for="">Extra Toppings : </label><br>
+            <input type="checkbox" name="toppings[]" value="Mushrooms">Mushrooms<br>
+            <input type="checkbox" name="toppings[]" value="Garlic">Garlic<br>
+            <input type="checkbox" name="toppings[]" value="Olives">Olives<br>
+            <input type="checkbox" name="toppings[]" value="Peppers">Peppers<br>
+        </fieldset>
     </div>
     <button class="btn btn-secondary" type="submit">Order Pizza</button>
 </form>

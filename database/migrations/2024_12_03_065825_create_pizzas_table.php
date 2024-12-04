@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('base');
             $table->integer('price');
+            $table->json('toppings');
             $table->timestamps();
         });
     }

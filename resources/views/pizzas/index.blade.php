@@ -3,8 +3,11 @@
 <BR>
 
 <Center>
+    <p class="mssg">{{ session('mssg') }}</p>
     <h4>Pizzas</h4>
+
 </Center>
+
 <table class="table">
     <thead>
         <tr>
@@ -12,6 +15,8 @@
             <th>Name</th>
             <th>Type</th>
             <th>Base</th>
+            <th>Price</th>
+            <th>Toppings</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +26,14 @@
             <td>{{ $pizza['name'] }}</td>
             <td>{{ $pizza['type'] }}</td>
             <td>{{ $pizza['base'] }}</td>
-        </tr> 
+            <td>{{ $pizza['price'] }}</td>
+            <td>
+                @foreach ($pizza->toppings as $topping)
+                <span>{{ $topping }}</span>
+                @if (!$loop->last), @endif
+                @endforeach
+            </td>
+        </tr>
         @endforeach
     </tbody>
 </table>
