@@ -11,6 +11,13 @@
     @endforeach
 </ul>
 
+<form action="/pizzaburg/pizzas/{{ $pizzas->id }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button class="btn btn-danger">Complete Order</button>
+
+</form>
+
 <a href="/pizzaburg/pizzas" class="back">Back to all pizzas</a>
 
 @endsection
