@@ -10,7 +10,7 @@ class PizzaController extends Controller
     public function index()
     {
         // $pizzas = Pizza::all();
-        $pizzas = Pizza::orderBy('id', 'desc')->get();
+        $pizzas = Pizza::orderBy('id', 'desc')->paginate(5);
         // $pizzas = Pizza::where('type','Hawaiian')->get();
         // $pizzas = Pizza::latest()->get();
         $id = request('id');
@@ -50,4 +50,16 @@ class PizzaController extends Controller
 
         return redirect('/pizzas');
     }
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search'); // Get the search term from the request
+
+        // Paginate the filtered results (5 items per page)
+        $pizzas = Pizza::where('name', 'like', '%' . $searchTerm . '%')
+            ->orWhere('type', 'like', '%' . $searchTerm . '%')
+            ->paginate(5);
+
+        // Return the view with the paginated results
+        return view('pizzas.index', ['pizzas' => $pizzas]);    }
 }

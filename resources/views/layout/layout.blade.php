@@ -17,8 +17,11 @@
 
 <body>
     @include('layout.common.navbar')
+    <div class="container">
+    <br>    
     @yield('content')
-
+    </div>
+    <br>
     <footer>
         Copyright 2024 Pizzaburg
     </footer>

@@ -2,9 +2,9 @@
 @section('content')
 <h2>Order for {{ $pizzas->name }}</h2>
 <br>
-<h4>Type : {{ $pizzas->type }}</h4>
-<h4>base : {{ $pizzas->base }}</h4>
-<h4 class="toppings">Extra Toppings</h4>
+<h5>Type : {{ $pizzas->type }}</h5>
+<h5>base : {{ $pizzas->base }}</h5>
+<h5 class="toppings">Extra Toppings</h5>
 <ul>
     @foreach ($pizzas->toppings as $topping)
     <li>{{ $topping }}</li>
