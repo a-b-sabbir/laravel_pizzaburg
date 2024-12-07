@@ -36,6 +36,9 @@
                 <span>No toppings</span>
                 @endif
             </td>
+
+
+
         </tr>
         @endforeach
     </tbody>

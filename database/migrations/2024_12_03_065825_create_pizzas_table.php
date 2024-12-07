@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('base');
             $table->integer('price');
             $table->json('toppings');
+            $table->string('photo', 300)->nullable();
             $table->timestamps();
         });
     }

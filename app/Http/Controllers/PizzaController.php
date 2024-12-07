@@ -39,6 +39,12 @@ class PizzaController extends Controller
         $pizza->price = request('price');
         $pizza->toppings = request('toppings');
 
+        if (request()->hasFile('photo')) {
+            // Save the uploaded file to 'public/photos' and store its path
+            $photoPath = request('photo')->store('photos', 'public');
+            $pizza->photo = $photoPath; // Save the path in the database
+        }
+
         $pizza->save();
         return redirect('/pizzas')->with('mssg', 'Thanks for your order');
     }
@@ -56,10 +62,12 @@ class PizzaController extends Controller
         $searchTerm = $request->input('search'); // Get the search term from the request
 
         // Paginate the filtered results (5 items per page)
-        $pizzas = Pizza::where('name', 'like', '%' . $searchTerm . '%')
+        $pizzas = Pizza::where('id', $searchTerm)
+            ->orWhere('name', 'like', '%' . $searchTerm . '%')
             ->orWhere('type', 'like', '%' . $searchTerm . '%')
             ->paginate(5);
 
         // Return the view with the paginated results
-        return view('pizzas.index', ['pizzas' => $pizzas]);    }
+        return view('pizzas.index', ['pizzas' => $pizzas]);
+    }
 }

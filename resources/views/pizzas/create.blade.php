@@ -1,8 +1,12 @@
 @extends('layout.layout')
 @section('content')
 <h2>Create a new pizza</h2>
-<form action="/pizzaburg/pizzas" method="POST">
+<form action="/pizzaburg/pizzas" method="POST" enctype="multipart/form-data">
     @csrf
+    <div class="mb-3">
+        <label for="photo">User Photo:</label>
+        <input type="file" name="photo" id="photo" accept="image/*" required>
+    </div>
     <div class="mb-3">
         <label class="form-label" for="name">Your Name: </label>
         <input class="form-control w-50" type="text" id="name" name="name" /><br>
@@ -11,7 +15,7 @@
         <label class="form-label" for="price">Price: </label>
         <input class="form-control w-50" type="text" id="price" name="price" /><br>
     </div>
-    
+
     <div class="mb-3">
         <label for="type">Choose a Pizza type: </label>
         <select class="form-select w-50" name="type" id="type">
