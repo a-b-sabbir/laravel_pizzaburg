@@ -5,7 +5,12 @@
 <h5>Type: {{ $pizzas->type }}</h5>
 <h5>Base: {{ $pizzas->base }}</h5>
 
+<p>{{ $pizzas->photo }}</p>
 
+@if($pizzas->photo)
+<img src="{{ asset('storage/' . $pizzas->photo) }}" alt="Pizza Photo" width="100" height="100">
+@else
+No photo
 @endif<h5 class="toppings">Extra Toppings</h5>
 <ul>
     @foreach ($pizzas->toppings as $topping)

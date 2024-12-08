@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 <h2>Create a new pizza</h2>
-<form action="/pizzaburg/pizzas" method="POST" enctype="multipart/form-data">
+<form action="{{ route('pizza.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="photo">User Photo:</label>

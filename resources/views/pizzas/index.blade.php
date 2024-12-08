@@ -17,6 +17,7 @@
             <th>Base</th>
             <th>Price</th>
             <th>Toppings</th>
+            <th>Photo</th>
         </tr>
     </thead>
     <tbody>
@@ -36,7 +37,13 @@
                 <span>No toppings</span>
                 @endif
             </td>
-
+            <td>
+                @if($pizza->photo)
+                <img src="{{ asset('storage/' . $pizza->photo) }}" alt="Pizza Photo" width="100">
+                @else
+                No photo
+                @endif
+            </td>
 
 
         </tr>
